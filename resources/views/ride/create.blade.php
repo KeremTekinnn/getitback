@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-progress-bar :step="$step"></x-progress-bar>
-    <form method="POST" action="{{ route('ride.get_ride_information') }}" class="w-full max-w-xs mx-auto">        @csrf
-        <!-- Input field for pickup address with autocomplete -->
+<form method="POST" action="{{ route('ride.store') }}" class="w-full max-w-xs mx-auto">
+        @csrf
+    <!-- Input field for pickup address with autocomplete -->
         <div class="mb-4">
             <label for="pickupInput" class="block mb-1">Pickup Address</label>
             <input type="text" id="pickupInput" name="pickup" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter pickup address">
@@ -26,39 +26,38 @@
             @error('date')
             <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
-<div class="mb-4">
-    <!-- Input field to display distance -->
-    <div>
-        <label for="distanceInput" class="block mb-1">Distance</label>
-        <div class="flex">
-            <input type="text" id="distanceInput" name="distance" class="shadow appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Distance" readonly>
-            <div class="self-center ml-2">km</div>
         </div>
-        @error('distance')
-        <p class="text-red-500 text-xs italic">{{ $message }}</p>
-        @enderror
-    </div>
-    <!-- Input field to display cost -->
-    <div>
-        <label for="costInput" class="block mb-1">Cost</label>
-        <div class="flex">
-            <input type="text" id="costInput" name="cost" class="shadow appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Cost" readonly>
-            <div class="self-center ml-2">€</div>
+        <!-- Input field to display distance -->
+        <div class="mb-4">
+            <label for="distanceInput" class="block mb-1">Distance</label>
+            <div class="flex">
+                <input type="text" id="distanceInput" name="distance" class="shadow appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Distance" readonly>
+                <div class="self-center ml-2">km</div>
+            </div>
+            @error('distance')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
         </div>
-        @error('cost')
-        <p class="text-red-500 text-xs italic">{{ $message }}</p>
-        @enderror
-    </div>
-</div>
+        <!-- Input field to display cost -->
+        <div class="mb-4">
+            <label for="costInput" class="block mb-1">Cost</label>
+            <div class="flex">
+                <input type="text" id="costInput" name="cost" class="shadow appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Cost" readonly>
+                <div class="self-center ml-2">€</div>
+            </div>
+            @error('cost')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
+        </div>
 
-            <button type="submit" id="nextButton">Next</button>
+        <button type="submit" id="bookButton">Book</button>
     </form>
     <script>
         // Initialize Google Places Autocomplete on the input fields
         let pickupInput = document.getElementById('pickupInput');
         let deliveryInput = document.getElementById('deliveryInput');
-        let distanceInput = document.getElementById('distanceInput'); // Changed to 'distanceInput'
-        let costInput = document.getElementById('costInput'); // Added this line
+        let distanceInput = document.getElementById('distanceInput');
+        let costInput = document.getElementById('costInput');
         let dateInput = document.getElementById('dateInput');
 
         let options = {
@@ -109,4 +108,3 @@
     </script>
 
 @endsection
-

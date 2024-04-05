@@ -30,7 +30,7 @@
                 <td>{{ $ride->dropoff }}</td>
                 <td>{{ $ride->date }}</td>
                 <td>{{ $ride->distance }}km</td>
-                <td>€{{ $ride->invoice->amount }}</td>
+                <td>€{{ $ride->cost }}</td>
                 <td>
                     @switch($ride->status)
                         @case('Done')

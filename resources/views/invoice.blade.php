@@ -29,7 +29,7 @@
     <p>Date: {{ $ride->date }}</p>
     <p>Distance: {{ $ride->distance }}</p>
     <p>Status: {{ $ride->status }}</p>
-    <p>Price: &euro;{{ $invoice->amount }}</p>
+    <p>Price: &euro;{{ $ride->cost }}</p>
 
 </div>
 

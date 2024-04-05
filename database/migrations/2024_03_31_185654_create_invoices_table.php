@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ride_id')->constrained()->onDelete('cascade');
-            $table->float('amount');
+            $table->decimal('amount', 8, 2);
             $table->enum('status', ['paid', 'unpaid'])->default('unpaid');
             $table->timestamps();
         });

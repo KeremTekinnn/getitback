@@ -13,18 +13,16 @@ class RideMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $invoice;
     public $ride;
 
-    public function __construct(Ride $ride, Invoice $invoice)
+    public function __construct(Ride $ride)
     {
         $this->ride = $ride;
-        $this->invoice = $invoice;
     }
 
     public function build()
     {
         return $this->subject('Ride Booked Successfully')
-            ->markdown('emails.ride_mail' , ['ride' => $this->ride, 'invoice' => $this->invoice]) ;
+            ->markdown('emails.ride_mail' , ['ride' => $this->ride]) ;
     }
 }

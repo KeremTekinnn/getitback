@@ -12,16 +12,7 @@ class Ride extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'pickup',
-        'dropoff',
-        'date',
-        'distance',
-        'status',
-        'payment_method',
-        'payment_id',
-    ];
+    protected $fillable = ['pickup', 'dropoff', 'date', 'distance', 'cost', 'user_id', 'payment_method', 'payment_id'];
 
     public function setting()
     {

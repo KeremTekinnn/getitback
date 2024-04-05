@@ -19,8 +19,7 @@ return new class extends Migration
             $table->date('date');
             $table->decimal('distance', 8, 2);
             $table->enum('status', ['Pending', 'Underway', 'Done'])->default('Pending');
-            $table->string('payment_method')->nullable(); // Added payment_method column
-            $table->string('payment_id')->nullable();     // Added payment_id column
+            $table->decimal('cost', 8, 2);
             $table->timestamps();
         });
     }

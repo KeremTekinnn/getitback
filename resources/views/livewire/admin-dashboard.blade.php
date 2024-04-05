@@ -33,7 +33,7 @@
                 <td>{{ $ride->dropoff }}</td>
                 <td>{{ $ride->date }}</td>
                 <td>{{ $ride->distance }}</td>
-                <td>{{ $ride->invoice->amount }}</td>
+                <td>{{ $ride->cost }}</td>
                 <td>{{ $ride->status }}</td>
                 <td>
                     <select wire:change="changeStatus({{ $ride->id }}, $event.target.value)">

@@ -7,7 +7,7 @@ Your ride has been booked successfully. Here are the details:
 - Dropoff: {{ $ride->dropoff }}
 - Date: {{ $ride->date }}
 - Distance: {{ $ride->distance }} km
-- Price: €{{ $invoice->amount }}
+- Price: €{{ $ride->cost }}
 
 Thanks,<br>
 {{ config('app.name') }}
