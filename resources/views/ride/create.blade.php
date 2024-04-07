@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="POST" action="{{ route('ride.store') }}" class="w-full max-w-xs mx-auto">
+<form method="POST" action="{{ route('checkout') }}" class="w-full max-w-xs mx-auto">
         @csrf
     <!-- Input field for pickup address with autocomplete -->
         <div class="mb-4">

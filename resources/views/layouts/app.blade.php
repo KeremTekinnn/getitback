@@ -30,8 +30,6 @@
 
 <div class="main-container">
 @include('layouts.navigation')
-@include('components.success-error')
-
     <main class="table-container">
         @yield('content')
     </main>

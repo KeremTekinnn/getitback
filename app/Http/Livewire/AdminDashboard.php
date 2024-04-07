@@ -17,17 +17,20 @@ class AdminDashboard extends Component
 
     public function mount()
     {
+        // Fetch the price per kilometer from the settings
         $this->pricePerKm = Setting::find(1)->price_per_km;
         $this->fetchRides();
     }
 
     public function render()
     {
+        // Render the admin dashboard view
         return view('livewire.admin-dashboard');
     }
 
     public function fetchRides()
     {
+        // Fetch all rides or rides with a specific status
         if ($this->status == 'all') {
             $this->rides = Ride::all();
         } else {
@@ -42,6 +45,7 @@ class AdminDashboard extends Component
 
     public function changeStatus($rideId, $status)
     {
+        // Update the status of the ride
         $ride = Ride::find($rideId);
         if ($ride) {
             $ride->update(['status' => $status]);
@@ -51,6 +55,7 @@ class AdminDashboard extends Component
 
     public function updateKilometerPrice()
     {
+        // Update the price per kilometer in the settings
         $setting = Setting::find(1);
         if ($setting) {
             $setting->update(['price_per_km' => $this->pricePerKm]);

@@ -3,10 +3,10 @@
 
 Here are the details of your ride:
 
-- Pickup: {{ $ride->pickup }}
-- Dropoff: {{ $ride->dropoff }}
-- Date: {{ $ride->date }}
-- Distance: {{ $ride->distance }} km
+- Pickup: {{ $invoice->ride->pickup }}
+- Dropoff: {{ $invoice->ride->dropoff }}
+- Date: {{ $invoice->ride->date }}
+- Distance: {{ $invoice->ride->pickup }} km
 - Price: €{{ $invoice->amount }}
 
 Thanks,<br>

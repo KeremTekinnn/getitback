@@ -2,17 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RideController;
 use App\Http\Controllers\InvoiceController;
-use App\Models\Ride;
-use App\Models\Invoice;
-use Illuminate\Http\Request;
-use Laravel\Cashier\Cashier;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\RideMail;
-use Stripe\Stripe;
-use Stripe\Checkout\Session;
+use App\Http\Controllers\RideController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,8 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/ride-create', [RideController::class, 'create'])->name('ride.create');
-Route::post('/ride-store', [RideController::class, 'store'])->name('ride.store');
+Route::get('/create', [RideController::class, 'create'])->name('ride.create');;
+Route::post('/checkout', [RideController::class, 'checkout'])->name('checkout');;
+Route::get('/success', [RideController::class, 'success'])->name('success');;
 
 Route::get('/invoice/download/{ride}', [InvoiceController::class, 'download'])->name('invoice.download');
 Route::get('/invoice/email/{ride}', [InvoiceController::class, 'sendInvoiceEmail'])->name('invoice.email');

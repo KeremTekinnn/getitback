@@ -12,17 +12,15 @@ class InvoiceMail extends Mailable
     use Queueable, SerializesModels;
 
     public $invoice;
-    public $ride;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($invoice, $ride)
+    public function __construct($invoice)
     {
         $this->invoice = $invoice;
-        $this->ride = $ride;
     }
 
     /**
@@ -33,6 +31,6 @@ class InvoiceMail extends Mailable
     public function build()
     {
         return $this->subject('Your Invoice')
-            ->markdown('emails.invoice', ['ride' => $this->ride, 'invoice' => $this->invoice]);
+            ->markdown('emails.invoice', ['invoice' => $this->invoice]);
     }
 }

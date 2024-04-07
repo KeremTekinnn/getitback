@@ -34,7 +34,6 @@
                 <td>{{ $ride->date }}</td>
                 <td>{{ $ride->distance }}</td>
                 <td>{{ $ride->cost }}</td>
-                <td>{{ $ride->status }}</td>
                 <td>
                     <select wire:change="changeStatus({{ $ride->id }}, $event.target.value)">
                         <option value="pending" @if($ride->status == 'Pending') selected @endif>Pending</option>
@@ -43,7 +42,12 @@
                     </select>
                 </td>
                 <td>
-                    <!-- Add any action buttons here if needed -->
+                    <a href="{{ route('invoice.download', $ride->id) }}" class="btn btn-primary">
+                        <i class="bi bi-download"></i>
+                    </a>
+                    <a href="{{ route('invoice.email', $ride->id) }}" class="btn btn-secondary">
+                        <i class="bi bi-envelope"></i>
+                    </a>
                 </td>
             </tr>
         @empty

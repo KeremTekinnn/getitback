@@ -45,8 +45,9 @@ class InvoiceController extends Controller
         $user = $ride->user;
 
         // Send the invoice as an email to the user
-        Mail::to($user->email)->send(new InvoiceMail($invoice, $ride));
+        Mail::to($user->email)->send(new InvoiceMail($invoice));
 
+        // Redirect back with a success message
         return back()->with('success', 'Invoice email sent successfully!');
     }
 }

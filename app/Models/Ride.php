@@ -12,8 +12,7 @@ class Ride extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pickup', 'dropoff', 'date', 'distance', 'cost', 'user_id', 'payment_method', 'payment_id'];
-
+    protected $fillable = ['user_id', 'pickup', 'dropoff', 'date', 'distance', 'cost', 'status'];
     public function setting()
     {
         return $this->belongsTo(Setting::class);
